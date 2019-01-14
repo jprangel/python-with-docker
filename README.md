@@ -30,11 +30,17 @@ To execute the project execute:
 ```
 sudo docker-compose up --build
 ```
-To access the decrypted XML file in B instance, you should access the container with the command: `docker exec`
+Considerations:
 
-The image base used in this project can be found on the folder: `image-base/Dockerfile`
+1. It was used two JSON files on this project, those files are stored on `instance-a/bucket-r`, if you want to add more JSON files just leave on the folder `bucket-r`.
 
-If you want to execute this project locally, execute:
+2. The files converted from JSON to XML and encrypted are stored on `instance-a/bucket-w`.
+3. The files decrypted is stored on `instance-b/bucket-w`.
+4. As this project it just to a proof of concept, the cryptographic was did by a key gpg (RSA 2048) and the public and the private key was published.
+5. As this project it just to a proof of concept, those ssh-keys was published, and the files are transferred by scp command.
+6. To access the decrypted XML file in B instance, you should access the container with the command: `docker exec`
+7. The image base used in this project can be found on the folder: `image-base/Dockerfile`
+8. If you want to execute this project locally, execute:
 ```
 virtualenv -p python3 python-with-docker/instance-a
 virtualenv -p python3 python-with-docker/instance-b
