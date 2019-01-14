@@ -26,7 +26,7 @@ Any given Json putted to container A appears in XML form on container B using me
 
 ## How-to
 
-To execute the project execute:
+To execute the project, clone the project and execute:
 ```
 sudo docker-compose up --build
 ```
