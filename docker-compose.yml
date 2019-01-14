@@ -1,0 +1,28 @@
+version: '3'
+
+networks:
+  python_instances:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
+services:
+  instance_a:
+    build: instance-a/.
+    environment:
+      PATH_JSON_R: '/app/bucket-r/'
+      PATH_JSON_W: '/app/bucket-w/'
+      IP_INSTB: '172.20.0.6'
+    networks:
+      python_instances:
+         ipv4_address: 172.20.0.5
+    depends_on:
+      - instance_b
+
+  instance_b:
+    build: instance-b/.
+    environment:
+      PATH_JSON_W: '/app/bucket-w/'
+    networks:
+      python_instances:
+         ipv4_address: 172.20.0.6
