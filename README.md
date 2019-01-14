@@ -40,4 +40,6 @@ virtualenv -p python3 python-with-docker/instance-a
 virtualenv -p python3 python-with-docker/instance-b
 source python-with-docker/instance-a/bin/active
 source python-with-docker/instance-b/bin/active
+python instance-a/src/main.py
+python instance-b/src/main.py
 ```
